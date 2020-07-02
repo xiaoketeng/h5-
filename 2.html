@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+        }
+        .test{
+            width:400px;
+            height:400px;
+            position: relative;
+            border:1px solid #ccc;
+            background-image: url(./bg_min.png);
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+        }
+        .img-box img{
+            width:200px;
+            height: auto;
+            display: block;
+        }
+        .img-start{
+           width:200px;
+           height: auto;
+           /* background-color: red; */
+           position: absolute;
+           top: 50%;
+           left:50%;
+           /* opacity: 0; */
+           transform:translate(-50%,-50%) ;
+        }
+        .bg-mask{
+            width:0px;
+            height: 0px;
+            position: absolute;
+           top: 50%;
+           left:50%;
+           z-index:25;
+           transform:translate(-50%,-50%) ;
+           animation: disappear 2.5s linear;
+           overflow: hidden;
+        }
+        .bg-mask .img-bg{
+           width:400px;
+           height: 400px;
+           position: absolute;
+           top: 50%;
+           left:50%;
+           z-index:25;
+           transform:translate(-50%,-50%) ;
+        }
+
+        .main{
+           width:0px;
+           height:0px;
+           position: absolute;
+           top: 50%;
+           left:50%;
+           transform:translate(-50%,-50%) ;
+           z-index:31 ;
+           /* opacity: 0; */
+           animation: disappear 2.5s linear;
+           overflow: hidden;
+        }
+        .img-end{
+           position: absolute;
+           top: 50%;
+           left:50%;
+           transform:translate(-50%,-50%);
+           z-index:2 ;
+           opacity: 1;
+           /* animation: show 1.5s linear; */
+        }
+        @keyframes show{
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        @keyframes disappear{
+            from {
+                width:200px;
+                height: 200px;
+                border-radius: 100%;
+                /* opacity: 1; */
+            }
+            
+            to {
+                width:0;
+                height:0;
+                border-radius: 100%;
+                /* opacity: 0; */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="test">
+        <div class="img-box">
+            <div class="img-list">
+                <div class="main"> <img class="img-start" src="1.png" alt=""></div>
+                <div class="bg-mask"><img class="img-bg" src="bg_min.png" alt=""></div>
+                <img class="img-end" src="61.png" alt="">
+               
+            </div>
+        </div>
+    </div>
+</body>
+</html>
